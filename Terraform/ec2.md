@@ -4,7 +4,6 @@
 
 - 🌐 [Terraform Registry](https://registry.terraform.io/)
 - 📘 [AWS Provider Docs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
-
 ---
 
 ## 📄 `first_ec2.tf`
@@ -22,8 +21,10 @@ resource "aws_instance" "myec2" {
 }
 ```
 
-⚠️ Security Tip
+⚠️ Security Tip:
+
 ❌ Avoid hardcoding AWS credentials in .tf files.
+
 ✅ Use one of the following secure methods instead:
 
 ```sh
