@@ -20,7 +20,6 @@ resource "aws_instance" "myec2" {
 
 ```
 ```
-
 ########################################################################################
 # ⚠️ SECURITY TIP:
 # ❌ Avoid hardcoding credentials directly in Terraform files.
@@ -30,9 +29,11 @@ resource "aws_instance" "myec2" {
 #         export AWS_SECRET_ACCESS_KEY="your-secret-key"
 #     • AWS CLI Profile (in ~/.aws/credentials)
 #     • Use `shared_credentials_file` or `profile` in provider block if needed
-### Commands:
 ```sh
 
+### Commands:
+
+```
 # 📦 Initialize the working directory:
 # --------------------------------------------------
 # terraform init
@@ -48,5 +49,5 @@ resource "aws_instance" "myec2" {
 # 🧹 To destroy the infrastructure when no longer needed:
 # --------------------------------------------------
 # terraform destroy
+```sh
 
-```
