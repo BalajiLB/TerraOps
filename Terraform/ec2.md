@@ -28,30 +28,23 @@ resource "aws_instance" "myec2" {
 
 ```sh
 ✅ 1. Environment Variables
-      export AWS_ACCESS_KEY_ID="your-access-key"
-      export AWS_SECRET_ACCESS_KEY="your-secret-key"
+        export AWS_ACCESS_KEY_ID="your-access-key"
+        export AWS_SECRET_ACCESS_KEY="your-secret-key"
 ✅ 2. AWS CLI Credentials File (~/.aws/credentials)
-      [default]
-      aws_access_key_id = your-access-key
-      aws_secret_access_key = your-secret-key
+        [default]
+        aws_access_key_id = your-access-key
+        aws_secret_access_key = your-secret-key
 ✅ 3. Use profile or shared_credentials_file in the Provider Block
-      provider "aws" {
+        provider "aws" {
         region  = "us-east-1"
         profile = "default"
       }
 ```
 🛠️ Terraform Commands
+
 ```sh
-# 📦 Initialize the working directory
-terraform init
-
-# 📝 Show the execution plan
-terraform plan
-
-# 🚀 Apply the infrastructure changes
-terraform apply
-
-# 🧹 Destroy resources when done
-terraform destroy
+terraform init     - 📦 Initialize the working directory
+terraform plan     - 📝 Show the execution plan
+terraform apply    - 🚀 Apply the infrastructure changes
+terraform destroy  - 🧹 Destroy resources when done
 ```
-
