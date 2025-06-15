@@ -33,7 +33,6 @@ resource "aws_instance" "myec2" {
 ### Commands:
 ```sh
 
-```sh
 # 📦 Initialize the working directory:
 # --------------------------------------------------
 # terraform init
