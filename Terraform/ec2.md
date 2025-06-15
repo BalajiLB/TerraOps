@@ -18,8 +18,7 @@ resource "aws_instance" "myec2" {
     instance_type = "t2.micro"
 }
 
-```
-```
+```sh
 ########################################################################################
 # ⚠️ SECURITY TIP:
 # ❌ Avoid hardcoding credentials directly in Terraform files.
@@ -33,7 +32,7 @@ resource "aws_instance" "myec2" {
 
 ### Commands:
 
-```
+```sh
 # 📦 Initialize the working directory:
 # --------------------------------------------------
 # terraform init
