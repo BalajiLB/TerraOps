@@ -1,12 +1,15 @@
-### Documentation Referred:
+# 🚀 Terraform AWS EC2 Provisioning
 
-https://registry.terraform.io/
+## 📚 Documentation Referred
 
-https://registry.terraform.io/providers/hashicorp/aws/latest/docs
+- 🌐 [Terraform Registry](https://registry.terraform.io/)
+- 📘 [AWS Provider Docs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
 
-### first_ec2.tf
+---
 
-```sh
+## 📄 `first_ec2.tf`
+
+```hcl
 provider "aws" {
   region     = "us-east-1"
   access_key = "PUT-YOUR-ACCESS-KEY-HERE"
@@ -14,39 +17,38 @@ provider "aws" {
 }
 
 resource "aws_instance" "myec2" {
-    ami = "ami-00c39f71452c08778"
-    instance_type = "t2.micro"
+  ami           = "ami-00c39f71452c08778"
+  instance_type = "t2.micro"
 }
 
-```sh
-########################################################################################
-# ⚠️ SECURITY TIP:
-# ❌ Avoid hardcoding credentials directly in Terraform files.
-# ✅ Use one of the following secure methods:
-#     • Environment Variables:
-#         export AWS_ACCESS_KEY_ID="your-access-key"
-#         export AWS_SECRET_ACCESS_KEY="your-secret-key"
-#     • AWS CLI Profile (in ~/.aws/credentials)
-#     • Use `shared_credentials_file` or `profile` in provider block if needed
-```sh
+⚠️ Security Tip
+❌ Avoid hardcoding AWS credentials in .tf files.
+✅ Use one of the following secure methods instead:
 
-### Commands:
+Environment variables:
 
-```sh
-# 📦 Initialize the working directory:
-# --------------------------------------------------
-# terraform init
+bash
+Copy
+Edit
+export AWS_ACCESS_KEY_ID="your-access-key"
+export AWS_SECRET_ACCESS_KEY="your-secret-key"
+AWS CLI config (~/.aws/credentials)
 
-# 📝 See what Terraform will do before applying:
-# --------------------------------------------------
-# terraform plan
+shared_credentials_file or profile in the provider block
 
-# 🚀 Apply the changes to provision infrastructure:
-# --------------------------------------------------
-# terraform apply
+🛠️ Terraform Commands
+bash
+Copy
+Edit
+# 📦 Initialize the working directory
+terraform init
 
-# 🧹 To destroy the infrastructure when no longer needed:
-# --------------------------------------------------
-# terraform destroy
-```sh
+# 📝 Show the execution plan
+terraform plan
+
+# 🚀 Apply the infrastructure changes
+terraform apply
+
+# 🧹 Destroy resources when done
+terraform destroy
 
