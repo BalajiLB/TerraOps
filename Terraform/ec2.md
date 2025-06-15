@@ -19,6 +19,8 @@ resource "aws_instance" "myec2" {
 }
 
 ```
+```
+
 ########################################################################################
 # ⚠️ SECURITY TIP:
 # ❌ Avoid hardcoding credentials directly in Terraform files.
