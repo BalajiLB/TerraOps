@@ -49,17 +49,17 @@ resource "aws_instance" "myec2" {
 
 ❌ Avoid hardcoding AWS credentials in .tf files.
 
-✅ Use one of the following secure methods instead:
+Use one of the following secure methods instead:
 
 ```sh
-✅ 1. Environment Variables
+1. Environment Variables
         export AWS_ACCESS_KEY_ID="your-access-key"
         export AWS_SECRET_ACCESS_KEY="your-secret-key"
-✅ 2. AWS CLI Credentials File (~/.aws/credentials)
+2. AWS CLI Credentials File (~/.aws/credentials)
         [default]
         aws_access_key_id = your-access-key
         aws_secret_access_key = your-secret-key
-✅ 3. Use profile or shared_credentials_file in the Provider Block
+3. Use profile or shared_credentials_file in the Provider Block
         provider "aws" {
         region  = "us-east-1"
         profile = "default"
