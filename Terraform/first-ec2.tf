@@ -1,35 +1,54 @@
-#############################################
-# 🚀 Terraform AWS EC2 Provisioning Example #
-#############################################
+########################################################################################
+# 🚀 Terraform AWS EC2 Provisioning - All-in-One Visual Guide
+########################################################################################
 
-# 📚 Documentation Referred:
-# - Terraform Registry: https://registry.terraform.io/
-# - AWS Provider Docs: https://registry.terraform.io/providers/hashicorp/aws/latest/docs
+# 📚 Documentation:
+#    📘 Terraform Registry: https://registry.terraform.io/
+#    📘 AWS Provider Docs: https://registry.terraform.io/providers/hashicorp/aws/latest/docs
+########################################################################################
+# 🗺️ Architecture Overview
+#
+#         +----------------------+       terraform apply       +---------------------+
+#         |      Developer       |   ----------------------->  |         AWS         |
+#         | (You / CI Pipeline)  |                             |    EC2 Instance     |
+#         +----------------------+                             +---------------------+
+#
+########################################################################################
 
-####################################
-# ⚙️ Provider Configuration
-####################################
+# ⚠️ SECURITY TIP:
+# ❌ Avoid hardcoding credentials directly in Terraform files.
+# ✅ Use one of the following secure methods:
+#     • Environment Variables:
+#         export AWS_ACCESS_KEY_ID="your-access-key"
+#         export AWS_SECRET_ACCESS_KEY="your-secret-key"
+#     • AWS CLI Profile (in ~/.aws/credentials)
+#     • Use `shared_credentials_file` or `profile` in provider block if needed
+########################################################################################
+# ⚙️ AWS Provider Configuration
+########################################################################################
 
 provider "aws" {
   region     = "us-east-1"
   access_key = "PUT-YOUR-ACCESS-KEY-HERE"   # ❌ Do NOT commit real credentials
   secret_key = "PUT-YOUR-SECRET-KEY-HERE"
 }
-
-# 🛑 NOTE:
-# It's a bad practice to hardcode AWS credentials.
-# Instead, use environment variables or AWS credentials file:
-# export AWS_ACCESS_KEY_ID="your-access-key"
-# export AWS_SECRET_ACCESS_KEY="your-secret-key"
-
 ####################################
 # 🖥️ EC2 Instance Resource
 ####################################
 
+# main.tf
+
 resource "aws_instance" "myec2" {
-  ami           = "ami-00c39f71452c08778"  # ✅ Amazon Linux 2 AMI (Example)
+  ami           = "ami-00c39f71452c08778"
   instance_type = "t2.micro"
+
+  tags = {
+    Name    = "MyEC2Instance"
+    Project = "Terraform-Demo"
+    Owner   = "YourName"
+  }
 }
+
 
 ####################################
 # 🛠️ Terraform Commands to Run
