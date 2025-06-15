@@ -4,20 +4,34 @@
 
 - 🌐 [Terraform Registry](https://registry.terraform.io/)
 - 📘 [AWS Provider Docs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
+
 ---
 
 ## 📄 `first_ec2.tf`
-
+########################################################################################
+# ⚙️ AWS Provider Configuration
+########################################################################################
 ```sh
 provider "aws" {
   region     = "us-east-1"
-  access_key = "PUT-YOUR-ACCESS-KEY-HERE"
+  access_key = "PUT-YOUR-ACCESS-KEY-HERE"     # ❌ Replace with env var or profile in real use
   secret_key = "PUT-YOUR-SECRET-KEY-HERE"
 }
+```
 
+########################################################################################
+# 🖥️ EC2 INSTANCE DEFINITION (first_ec2.tf)
+########################################################################################
+```sh
 resource "aws_instance" "myec2" {
-  ami           = "ami-00c39f71452c08778"
+  ami           = "ami-00c39f71452c08778"      # ✅ Amazon Linux 2 AMI (Example)
   instance_type = "t2.micro"
+
+  tags = {
+    Name    = "MyEC2Instance"
+    Project = "Terraform-Demo"
+    Owner   = "YourName"
+  }
 }
 ```
 
