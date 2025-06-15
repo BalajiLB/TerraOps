@@ -1,10 +1,12 @@
+
 ########################################################################################
 # 🚀 Terraform AWS EC2 Provisioning - All-in-One Visual Guide
 ########################################################################################
 
 # 📚 Documentation:
-#    📘 Terraform Registry: https://registry.terraform.io/
-#    📘 AWS Provider Docs: https://registry.terraform.io/providers/hashicorp/aws/latest/docs
+#    📘 Terraform Registry       : https://registry.terraform.io/
+#    📘 AWS Provider Documentation: https://registry.terraform.io/providers/hashicorp/aws/latest/docs
+
 ########################################################################################
 # 🗺️ Architecture Overview
 #
@@ -15,6 +17,8 @@
 #
 ########################################################################################
 
+
+########################################################################################
 # ⚠️ SECURITY TIP:
 # ❌ Avoid hardcoding credentials directly in Terraform files.
 # ✅ Use one of the following secure methods:
@@ -24,22 +28,25 @@
 #     • AWS CLI Profile (in ~/.aws/credentials)
 #     • Use `shared_credentials_file` or `profile` in provider block if needed
 ########################################################################################
+
+
+########################################################################################
 # ⚙️ AWS Provider Configuration
 ########################################################################################
 
 provider "aws" {
   region     = "us-east-1"
-  access_key = "PUT-YOUR-ACCESS-KEY-HERE"   # ❌ Do NOT commit real credentials
+  access_key = "PUT-YOUR-ACCESS-KEY-HERE"     # ❌ Replace with env var or profile in real use
   secret_key = "PUT-YOUR-SECRET-KEY-HERE"
 }
-####################################
-# 🖥️ EC2 Instance Resource
-####################################
 
-# main.tf
+
+########################################################################################
+# 🖥️ EC2 INSTANCE DEFINITION (first_ec2.tf)
+########################################################################################
 
 resource "aws_instance" "myec2" {
-  ami           = "ami-00c39f71452c08778"
+  ami           = "ami-00c39f71452c08778"      # ✅ Amazon Linux 2 AMI (Example)
   instance_type = "t2.micro"
 
   tags = {
@@ -50,19 +57,34 @@ resource "aws_instance" "myec2" {
 }
 
 
-####################################
-# 🛠️ Terraform Commands to Run
-####################################
+########################################################################################
+# 🛠️ TERRAFORM COMMANDS TO RUN
+########################################################################################
 
-# Run the following commands in your terminal:
+# 📦 Initialize the working directory:
+# --------------------------------------------------
+# terraform init
 
-# terraform init    # 🔧 Initialize the working directory
-# terraform plan    # 📝 Show execution plan
-# terraform apply   # 🚀 Apply the changes
+# 📝 See what Terraform will do before applying:
+# --------------------------------------------------
+# terraform plan
 
-####################################
-# ✅ Expected Output
-####################################
+# 🚀 Apply the changes to provision infrastructure:
+# --------------------------------------------------
+# terraform apply
 
-# After running the above commands,
-# an EC2 instance will be launched in the `us-east-1` region.
+# 🧹 To destroy the infrastructure when no longer needed:
+# --------------------------------------------------
+# terraform destroy
+
+
+########################################################################################
+# ✅ EXPECTED RESULT
+########################################################################################
+
+# ✔️ EC2 instance is launched in AWS us-east-1 region
+# ✔️ AMI: ami-00c39f71452c08778
+# ✔️ Instance Type: t2.micro
+# ✔️ Tags: Name=MyEC2Instance, Project=Terraform-Demo, Owner=YourName
+
+########################################################################################
