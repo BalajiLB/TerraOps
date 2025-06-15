@@ -21,7 +21,7 @@ This project is created and maintained by **Logabalaji Kannaiyan**, drawing from
 
 - Explore the blog posts in [`/blog`](./blog)
 - Visit the GitHub Pages site:  
-  🔗 [https://logabalaji.github.io/TerraOps](https://logabalaji.github.io/TerraOps)
+  🔗 [https://balajilb.github.io/TerraOps](https://balajilb.github.io/TerraOps)
 
 ---
 
