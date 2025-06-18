@@ -4,7 +4,9 @@ This example shows, how to use **list** data types in Terraform to create severa
 
 ## Scenario
 
-We have two lists: one with environment names and one with instance types. We will use these lists to create three EC2 instances. Each instance will be tagged with its environment name.
+We have two lists: one with "environment" names and one with "instance types". 
+
+We will use these lists to create three EC2 instances. Each instance will be tagged with its "environment" name.
 
 ```hcl
 variable "instance_types" {
