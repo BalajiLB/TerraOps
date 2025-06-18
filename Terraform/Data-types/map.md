@@ -63,7 +63,7 @@ Plan: 3 to add, 0 to change, 0 to destroy.
 
 ---
 
-## Resulting Resources
+## 🖥️ Resulting Resources
 
 After applying, you will have **three EC2 instances**:
 
