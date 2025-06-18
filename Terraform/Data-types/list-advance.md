@@ -1,6 +1,6 @@
 # Experimenting with List Data Types in Terraform
 
-This example shows, in simple English, how to use **list** data types in Terraform to create several AWS EC2 instances. Each instance will have a different type and a tag for its environment.
+This example shows, how to use **list** data types in Terraform to create several AWS EC2 instances. Each instance will have a different type and a tag for its environment.
 
 ## Scenario
 
